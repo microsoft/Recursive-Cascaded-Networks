@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Logs, weights, results, and datasets
+/logs/
+/weights/
+/evaluate/
+*.h5
+
 # User-specific files
 *.suo
 *.user

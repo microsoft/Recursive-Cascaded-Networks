@@ -69,15 +69,15 @@ For brain MRIs,
 
 ## Evaluation
 
-If you wish to test the pretrained [10-cascade VTN (for liver)](https://drive.google.com/open?id=1ECGIXccx2vhybrWff7DWW6keAjilEZcT) for example, please first make sure that the evaluation datasets for liver CT scans, [SLIVER, LiTS, and LSPIG](https://drive.google.com/open?id=1xQMmYk9S8En2k_uavytuHeeSmN253jKo), have been placed into the "datasets" folder. For evaluation on the SLIVER dataset ($$20 \times 19$$ pairs in total), please run:
+If you wish to test the pretrained [10-cascade VTN (for liver)](https://drive.google.com/open?id=1ECGIXccx2vhybrWff7DWW6keAjilEZcT) for example, please first make sure that the evaluation datasets for liver CT scans, [SLIVER, LiTS, and LSPIG](https://drive.google.com/open?id=1xQMmYk9S8En2k_uavytuHeeSmN253jKo), have been placed into the "datasets" folder. For evaluation on the SLIVER dataset (20 * 19 pairs in total), please run:
 
 `python eval.py -c weights/VTN-10-liver -g YOUR_GPU_DEVICES`
 
-For evaluation on the LiTS dataset ($$131 \times 130$$ pairs in total, which might be quite slow), please run:
+For evaluation on the LiTS dataset (131 * 130 pairs in total, which might be quite slow), please run:
 
 `python eval.py -c weights/VTN-10-liver -g YOUR_GPU_DEVICES -v lits`
 
-For pairwise evaluation on the LSPIG dataset ($$34$$ pairs in total), please run:
+For pairwise evaluation on the LSPIG dataset (34 pairs in total), please run:
 
 `python eval.py -c weights/VTN-10-liver -g YOUR_GPU_DEVICES -v lspig --paired`
 

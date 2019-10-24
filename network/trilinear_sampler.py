@@ -1,3 +1,5 @@
+# Modified from https://github.com/voxelmorph/voxelmorph
+
 from keras.layers.core import Layer
 import tensorflow as tf
 

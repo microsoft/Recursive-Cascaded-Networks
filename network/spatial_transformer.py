@@ -33,6 +33,7 @@ class Fast3DTransformer(Layer):
 
 
 # We acknowledge VoxelMorph for providing an alternative implementation of the 3D spatial trasnformer.
+# Modified from https://github.com/voxelmorph/voxelmorph
 
 class Dense3DSpatialTransformer(Layer):
     def __init__(self, padding = False, **kwargs):

@@ -46,6 +46,7 @@ os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
 
 import tensorflow as tf
 import tflearn
+import keras
 
 import network
 import data_util.liver

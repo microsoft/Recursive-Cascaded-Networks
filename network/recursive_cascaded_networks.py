@@ -74,10 +74,6 @@ class RecursiveCascadedNetworks(Network):
         return dict()
 
     def build(self, img1, img2, seg1, seg2, pt1, pt2):
-        '''
-            img1, img2, flow : tensor of shape [batch, X, Y, Z, C]
-        '''
-
         stem_results = []
 
         stem_result = self.stems[0][0](img1, img2)
@@ -105,6 +101,7 @@ class RecursiveCascadedNetworks(Network):
                 [img2, stem_result['agg_flow']])
             stem_results.append(stem_result)
 
+        # unsupervised learning with simlarity loss and regularization loss
         for stem_result, (stem, params) in zip(stem_results, self.stems):
             if 'W' in stem_result:
                 stem_result['loss'] = stem_result['det_loss'] * \
@@ -132,7 +129,6 @@ class RecursiveCascadedNetworks(Network):
 
         jacobian_det = self.jacobian_det(flow)
 
-        # unsupervised learning with simlarity loss and regularization loss
         loss = sum([r['loss'] * params['weight']
                     for r, (stem, params) in zip(stem_results, self.stems)])
 

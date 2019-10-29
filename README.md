@@ -23,11 +23,12 @@ Code has been tested with Python 3.6 and TensorFlow 1.4.
 If you use the code, the models, or our data in your research, please cite:
 
 ```
-@article{zhao2019recursive,
-  title={Recursive Cascaded Networks for Unsupervised Medical Image Registration},
-  author={Zhao, Shengyu and Dong, Yue and Chang, Eric I and Xu, Yan},
-  journal={arXiv preprint arXiv:1907.12353},
-  year={2019}
+@inproceedings{zhao2019recursive,
+  author = {Zhao, Shengyu and Dong, Yue and Chang, Eric I-Chao and Xu, Yan},
+  title = {Recursive Cascaded Networks for Unsupervised Medical Image Registration},
+  booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
+  month = {October},
+  year = {2019}
 }
 @article{zhao2019unsupervised,
   title={Unsupervised 3D End-to-End Medical Image Registration with Volume Tweening Network},

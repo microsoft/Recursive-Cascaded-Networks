@@ -26,15 +26,15 @@ If you use the code, the models, or our data in your research, please cite:
 @inproceedings{zhao2019recursive,
   author = {Zhao, Shengyu and Dong, Yue and Chang, Eric I-Chao and Xu, Yan},
   title = {Recursive Cascaded Networks for Unsupervised Medical Image Registration},
-  booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
-  month = {October},
+  booktitle = {Proceedings of the IEEE International Conference on Computer Vision (ICCV)},
   year = {2019}
 }
 @article{zhao2019unsupervised,
-  title={Unsupervised 3D End-to-End Medical Image Registration with Volume Tweening Network},
-  author={Zhao, Shengyu and Lau, Tingfung and Luo, Ji and Chang, Eric I and Xu, Yan},
-  journal={arXiv preprint arXiv:1902.05020},
-  year={2019}
+  title = {Unsupervised 3D End-to-End Medical Image Registration with Volume Tweening Network},
+  author = {Zhao, Shengyu and Lau, Tingfung and Luo, Ji and Chang, Eric I and Xu, Yan},
+  journal = {IEEE Journal of Biomedical and Health Informatics},
+  year = {2019},
+  doi = {10.1109/JBHI.2019.2951024}
 }
 ```
 

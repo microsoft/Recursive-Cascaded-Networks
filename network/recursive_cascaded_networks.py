@@ -211,8 +211,8 @@ class RecursiveCascadedNetworks(Network):
         if self.fast_reconstruction:
             _, pearson_r, _ = tf.user_ops.linear_similarity(flatten1, flatten2)
         else:
-            mean1 = tf.reduce_mean(flatten1, axis=-1)
-            mean2 = tf.reduce_mean(flatten2, axis=-1)
+            mean1 = tf.reshape(tf.reduce_mean(flatten1, axis=-1), [-1, 1])
+            mean2 = tf.reshape(tf.reduce_mean(flatten2, axis=-1), [-1, 1])
             var1 = tf.reduce_mean(tf.square(flatten1 - mean1), axis=-1)
             var2 = tf.reduce_mean(tf.square(flatten2 - mean2), axis=-1)
             cov12 = tf.reduce_mean(

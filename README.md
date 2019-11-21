@@ -84,6 +84,8 @@ For pairwise evaluation on the LSPIG dataset (34 pairs in total), please run:
 
 `YOUR_GPU_DEVICES` specifies the GPU ids to use (default to `0`), split by commas with multi-GPU support, or `-1` if CPU only. Make sure that the number of GPUs specified evenly divides the `BATCH_SIZE` that can be specified using `--batch BATCH_SIZE` (default to `4`). The proposed shared-weight cascading technique can be tested using `-r TIMES_OF_SHARED_WEIGHT_CASCADES` (default to `1`).
 
+When the code returns, you can find the result in "evaluate/*.txt".
+
 Similarly, to evaluate the pretrained [10-cascade VTN (for brain)](https://drive.google.com/open?id=1bvHG_g5NRS6Ek6aNEgMb9bIfYaCk62Mp) on the [LPBA](https://drive.google.com/open?id=19v5-qRF3KwA8Snf5ei-qtMv-nDYyXBzv) dataset:
 
 `python eval.py -c weights/VTN-10-brain -g YOUR_GPU_DEVICES`

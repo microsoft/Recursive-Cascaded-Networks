@@ -7,6 +7,7 @@
 /logs/
 /weights/
 /evaluate/
+/output/
 *.h5
 
 # User-specific files

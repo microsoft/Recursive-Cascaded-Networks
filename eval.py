@@ -3,6 +3,7 @@ import os
 import json
 import re
 import numpy as np
+from tqdm import tqdm
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-c', '--checkpoint', type=str, default=None,
@@ -106,7 +107,7 @@ def main():
         with open(output_fname, 'w') as fo:
             print("Validation subset {}".format(val_subset))
             gen = ds.generator(val_subset, loop=False)
-            results = framework.validate(sess, gen, keys=keys, summary=False)
+            results = framework.validate(sess, gen, keys=keys, summary=False, show_tqdm=True)
             for i in range(len(results['jaccs'])):
                 print(results['id1'][i], results['id2'][i], np.mean(results['dices'][i]), np.mean(results['jaccs'][i]), np.mean(
                     results['landmark_dists'][i]), results['jacobian_det'][i], file=fo)

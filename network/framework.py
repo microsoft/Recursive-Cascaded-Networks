@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import tflearn
+from tqdm import tqdm
 
 from . import transform
 from .utils import MultiGPUs
@@ -134,7 +135,7 @@ class FrameworkUnsupervised:
             _ = sess.run(self.get_predictions(*keys),
                          feed_dict=set_tf_keys(fd))
 
-    def validate(self, sess, generator, keys=None, summary=False, predict=False):
+    def validate(self, sess, generator, keys=None, summary=False, predict=False, show_tqdm=False):
         if keys is None:
             keys = ['dice_score', 'landmark_dist', 'pt_mask', 'jacc_score']
             # if self.segmentation_class_value is not None:
@@ -150,6 +151,8 @@ class FrameworkUnsupervised:
                 full_results['img1'] = []
                 full_results['img2'] = []
         tflearn.is_training(False, sess)
+        if show_tqdm:
+            generator = tqdm(generator)
         for fd in generator:
             id1 = fd.pop('id1')
             id2 = fd.pop('id2')

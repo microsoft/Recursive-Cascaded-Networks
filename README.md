@@ -42,13 +42,13 @@ If you use the code, the models, or our data in your research, please cite:
 
 Our preprocessed evaluation datasets can be downloaded here:
 
-* [SLIVER, LiTS, and LSPIG](https://drive.google.com/open?id=1xQMmYk9S8En2k_uavytuHeeSmN253jKo) for liver CT scans; and
-* [LPBA](https://drive.google.com/open?id=19v5-qRF3KwA8Snf5ei-qtMv-nDYyXBzv) for brain MRIs.
+- [SLIVER, LiTS, and LSPIG](https://drive.google.com/open?id=1xQMmYk9S8En2k_uavytuHeeSmN253jKo) for liver CT scans; and
+- [LPBA](https://drive.google.com/open?id=19v5-qRF3KwA8Snf5ei-qtMv-nDYyXBzv) for brain MRIs.
 
 If you wish to replicate our results, please also download our preprocessed training datasets:
 
-* [MSD and BFH](https://drive.google.com/open?id=17IiuM74HPj1fsWwkAfq-5Rc6r5vpxUJF) for liver CT scans; and
-* [ADNI, ABIDE, and ADHD](https://drive.google.com/open?id=1rJtP9M1N3lSjNzJ5kIzRrrwPe1bWCfXB) for brain MRIs.
+- [MSD and BFH](https://drive.google.com/open?id=17IiuM74HPj1fsWwkAfq-5Rc6r5vpxUJF) for liver CT scans; and
+- [ADNI, ABIDE, and ADHD](https://drive.google.com/open?id=1rJtP9M1N3lSjNzJ5kIzRrrwPe1bWCfXB) for brain MRIs.
 
 Please unzip the downloaded files into the "datasets" folder. Details about the datasets and the preprocessing stage can be found in the paper.
 
@@ -70,7 +70,7 @@ For brain MRIs,
 
 ## Evaluation
 
-If you wish to test the pretrained [10-cascade VTN (for liver)](https://drive.google.com/open?id=1ECGIXccx2vhybrWff7DWW6keAjilEZcT) for example, please first make sure that the evaluation datasets for liver CT scans, [SLIVER, LiTS, and LSPIG](https://drive.google.com/open?id=1xQMmYk9S8En2k_uavytuHeeSmN253jKo), have been placed into the "datasets" folder. For evaluation on the SLIVER dataset (20 * 19 pairs in total), please run:
+If you wish to evaluate the pretrained [10-cascade VTN (for liver)](https://drive.google.com/open?id=1ECGIXccx2vhybrWff7DWW6keAjilEZcT) for example, please first make sure that the evaluation datasets for liver CT scans, [SLIVER, LiTS, and LSPIG](https://drive.google.com/open?id=1xQMmYk9S8En2k_uavytuHeeSmN253jKo), have been placed into the "datasets" folder. For evaluation on the SLIVER dataset (20 * 19 pairs in total), please run:
 
 `python eval.py -c weights/VTN-10-liver -g YOUR_GPU_DEVICES`
 
@@ -99,6 +99,14 @@ The following script is for training:
 `python train.py -b BASE_NETWORK -n NUMBER_OF_CASCADES -d DATASET -g YOUR_GPU_DEVICES`
 
 `BASE_NETWORK` specifies the base network (default to `VTN`, also can be `VoxelMorph`). `NUMBER_OF_CASCADES` specifies the number of cascades to train (not including the affine cascade), default to `1`.  `DATASET` specifies the data config (default to `datasets/liver.json`, also can be `datasets/brain.json`). `YOUR_GPU_DEVICES` specifies the GPU ids to use (default to `0`), split by commas with multi-GPU support, or `-1` if CPU only. Make sure that the number of GPUs specified evenly divides the `BATCH_SIZE` that can be specified using `--batch BATCH_SIZE` (default to `4`). Specify `-c CHECKPOINT` to start with a previous checkpoint.
+
+## Demo
+
+We provide a demo that directly takes raw CT scans as inputs (only DICOM series supported), preprocesses them into liver crops, and generates the outputs:
+
+`python demo.py -c CHECKPOINT -f FIXED_IMAGE -m MOVING_IMAGE -o OUTPUT_DIRECTORY -g YOUR_GPU_DEVICES`
+
+Note that the preprocessing stage includes cropping the liver area using a threshold-based algorithm, which takes a couple of minutes and the correctness is not guaranteed.
 
 ## Built-In Warping Operation with TensorFlow
 

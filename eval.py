@@ -79,6 +79,7 @@ def main():
                  eval('dict({})'.format(args.data_args)))
 
     sess = tf.Session()
+    tf.global_variables_initializer().run()
 
     saver = tf.train.Saver(tf.get_collection(
         tf.GraphKeys.GLOBAL_VARIABLES))

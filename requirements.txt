@@ -1,0 +1,4 @@
+tflearn==0.5.0
+keras==2.0
+tensorflow==1.15
+SimpleITK==2.1.1
